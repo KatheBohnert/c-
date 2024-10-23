@@ -1,0 +1,24 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main (){
+    ofstream fich("fibonacci.txt");
+    if(!fich){
+        cout << "Error, no se puede encontrar la ruta del destino";
+        exit(EXIT_FAILURE);
+    }
+    int a = 0; 
+    int b = 1; 
+    int contador = 0;
+    int siguiente = 0;
+    int limite = 25;
+    while (contador < limite) {
+        cout << a <<" ";
+        siguiente = a + b;
+        a = b;
+        b = siguiente;
+        contador++;
+    }
+}
+  
