@@ -1,37 +1,31 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
+    int matriz[10][10];  
+    int tamano;
 
-    
-    int fn = 0; 
-    int n = 0;  
+    do {
+        cout << "Introduce el tamaño de la matriz (mínimo 2, máximo 10): ";
+        cin >> tamano;
+    } while (tamano < 2 || tamano > 10);
 
-    // Input de usuario para el Fibonacci
-    cout << "Ingrese un numero para ver su secuencia Fibonacci" << endl;
-    cin >> fn;
-
-    // Fibonacci
-    while (n >= 2) {
-        fn = n - 1 + n - 2;
-        cout << fn << endl; 
-    }
-
-    // Matriz
-    int matriz[3][3] = { {0, 0, 0}, {0, 0, 0}, {0, 0, 0} };
-
-    for (int i = 0; i < 3; i++) { 
-        for (int j = 0; j < 3; j++) 
+    int a = 0, b = 1, fibonacci;
+    for (int i = 0; i < tamano; i++) {
+        for (int j = 0; j < tamano; j++) {
+            matriz[i][j] = a; 
+            fibonacci = a + b; 
+            a = b; 
+            b = fibonacci;
         }
     }
 
-    // Imprimir la matriz
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            cout << matriz[i][j] << endl;
+    cout << "Matriz con valores de Fibonacci:\n";
+    for (int i = 0; i < tamano; i++) {
+        for (int j = 0; j < tamano; j++) {
+            cout << matriz[i][j] << " ";
         }
-     
+        cout << endl;
     }
 
     return 0;
